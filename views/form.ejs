@@ -1,0 +1,43 @@
+<script>
+    const myFunc = function(m){
+        let container = document.querySelector(".container");
+        if (m){
+            console.log(m.value);
+            //add input box for i ++ element
+        } else {
+            console.log("empty");
+        }
+      console.log("inside myFunc");
+    }
+</script>
+<div class="recipe-form-container">
+    <form class="recipe-form" action="/api/recipes" method="post">
+        <div class="recipe-form-line">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" placeholder="title">
+        </div>
+        <div class="recipe-form-line">
+            <label for="instructions">Instructions</label>
+            <textarea rows='5' cols='33' name="instructions" id="instructions" placeholder="instructions"></textarea>
+        </div>
+        <div class="recipe-form-line">
+            <label for="ingredients">Ingredients</label>
+            <input class="" type="text" name="ingredients" id="ingredients" placeholder="ingredients"> 
+            <span
+                onclick='myFunc(ingredients)'
+     
+            >
+                
+                +++
+            </span>
+            <div class="'container"></div>
+        </div>
+        <div class="recipe-form-line">
+            <label for="img">Image URL</label>
+            <input class="" type="text" name="img" id="img" placeholder="enter img URL here">
+        </div>
+        <div>
+            <input class="buttons" type="submit" name="" id="" placeholder="">
+        </div>
+    </form>
+</div>
