@@ -145,7 +145,7 @@ app.get("/api/posts/:id", (req, res) => {
 app.put("/api/posts/:id", (req, res) => {
   const search = req.params.id;
   const body = req.body;
-  BlogPostModel.findOneAndUpdate({ id: search }, body, { new: true })
+  BlogPostModel.findOneAndUpdate({ _id: search }, body, { new: true })
     .then((blog) => res.json(blog))
     .catch((error) => res.send(error));
 });
