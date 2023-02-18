@@ -120,13 +120,14 @@ app.post("/api/recipes", (req, res) => {
   let title = req.body.title;
   let id = req.body.id;
   let instructions = req.body.instructions;
+  let ingredients = req.body.ingredients;
   let img = req.body.img;
 
   const recipe = new db({
     title: title,
     id: id,
     instructions: instructions,
-    ingredients: [],
+    ingredients: ingredients,
     img: img,
   });
   db.create(recipe)

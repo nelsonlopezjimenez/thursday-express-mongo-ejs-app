@@ -115,10 +115,12 @@
                     Ingredients:
                 </h4>
                 <ul>
-                    <li>
-                        <%=recipe[i].ingredients[0]%>
-                    </li>
-
+                    <% recipe[i].ingredients.forEach(one => { %>
+                        <li>
+                            <%=one%>
+                        </li>
+                    <% }) %>
+ 
                 </ul>
                 <h4>Instructions:</h4>
                 <p>
