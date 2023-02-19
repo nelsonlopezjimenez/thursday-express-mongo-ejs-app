@@ -22,15 +22,19 @@
         </div>
         <div class="recipe-form-line">
             <label for="ingredients">Ingredients</label>
-            <input class="" type="text" name="ingredients" id="ingredients" placeholder="ingredients"> 
-            <span
-                onclick='myFunc(ingredients)'
+
+            <% let encrypted_word = "chicken"%>
+            <input type="text" name="ingredients" value="<%- encrypted_word %>" /><br><br>
+
+            <% if (encrypted_word == "chicken") {%>
      
-            >
-                
-                +++
-            </span>
-            <div class="'container"></div>
+                <input type="text" name="ingredient-1" placeholder="add and ing">
+            <% } else { %>
+                <h1>False</h1>
+            <% } %>
+
+
+        
         </div>
         <div class="recipe-form-line">
             <label for="img">Image URL</label>
