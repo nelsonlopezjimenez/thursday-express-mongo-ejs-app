@@ -1,17 +1,86 @@
 <script>
-    const myFunc = function(m){
+    const myFunc = function (m) {
         let container = document.querySelector(".container");
-        if (m){
+        if (m) {
             console.log(m.value);
             //add input box for i ++ element
         } else {
             console.log("empty");
         }
-      console.log("inside myFunc");
+        console.log("inside myFunc");
     }
 </script>
+<script>
+    const ingredients = [];
+    function infoAddInputText(t) {
+        console.log(t)
+        let i = 0;
+        let myCont = document.getElementById('container');
+        container.appendChild(document.createTextNode("Ing " + (i + 1)));
+        // Create an <input> element, set its type and name attributes
+        var input = document.createElement("input");
+        input.type = "text";
+        input.name = "ingredient" + i;
+        container.appendChild(input);
+        // Append a line break 
+        //====
+        var input1 = document.createElement("input");
+        input1.type = "button";
+        input1.name = "Add another" + i;
+
+        input1.setAttribute('value', "adding")
+        container.appendChild(input1);
+        input1.setAttribute('onchange', (m) => console.log(m))
+        // Append a line break 
+        container.appendChild(document.createElement("br"));
+
+        return i;
+    }
+    function saveInput(m) {
+        var inputs = document.getElementsByName('email[]');
+        var i;
+        // for (i = 0; i < 1; i++) {
+        //    var input = inputs[i].value;
+        //    // work with input (validate, etc.)
+        //    console.log(inputs)
+        // }
+        console.log(m.name.value);
+        console.log(m.age.value);
+        console.log(m.comment.value);
+        inputs.forEach(m => console.log(m.value));
+
+
+    }
+
+</script>
+
+<div>
+    <form name="mySecond">
+        Name:
+        <input type="text" id="name" name="name">
+      
+        Age:
+        <input type="number" id="age" name="age">
+      
+        Comment:
+        <input type="text" id="comment" name="comment">
+      
+        Email:
+        <input type="text" id="email" name="email[]">
+        <input type="text" id="email1" name="email[]">
+        <input type="text" id="email2" name="email[]">
+        <input type="text" id="email3" name="email[]">
+
+        <input type="button" value="SAVE" onclick="saveInput(mySecond)">
+
+      </form>
+          
+
+</div>
+
+
 <div class="recipe-form-container">
-    <form class="recipe-form" action="/api/recipes" method="post">
+    <form class="recipe-form" action="/api/recipes" method="post" name="myForm">
         <div class="recipe-form-line">
             <label for="title">Title</label>
             <input type="text" name="title" id="title" placeholder="title">
@@ -23,18 +92,13 @@
         <div class="recipe-form-line">
             <label for="ingredients">Ingredients</label>
 
-            <% let encrypted_word = "chicken"%>
-            <input type="text" name="ingredients" value="<%- encrypted_word %>" /><br><br>
 
-            <% if (encrypted_word == "chicken") {%>
-     
-                <input type="text" name="ingredient-1" placeholder="add and ing">
-            <% } else { %>
-                <h1>False</h1>
-            <% } %>
+            <input type="text" name="ingredients" id="myText" onchange="saveInput(this.value)" />
+            <input type="button" value="Add ingredient" onclick=" infoAddInputText(this)" />
+            <div id="container"></div>
 
 
-        
+
         </div>
         <div class="recipe-form-line">
             <label for="img">Image URL</label>

@@ -96,7 +96,7 @@ app.get("/api/recipes", (req, res) => {
 });
 app.get("/api/tmp", (req, res) => {
   db.find()
-    .then((data) => res.render('home', {recipe:data}))
+    .then((data) => res.render('form', {recipe:data}))
     .catch((error) => res.send(error));
 });
 
